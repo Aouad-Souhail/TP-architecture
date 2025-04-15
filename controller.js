@@ -1,9 +1,14 @@
+import { Model, TacheAvancee } from './model.js';
+import { View } from './view.js';
+
 class Controller {
     constructor(model, view) {
         this.model = model;
         this.view = view;
-        view.logiqueAffichageClick(desc => {
-            model.addTache(desc);
+
+        view.logiqueAffichageClick((description, categorie) => {
+            const nouvelleTache = new TacheAvancee(description, categorie);
+            model.addTache(nouvelleTache);
             view.afficherTaches(model.getTaches());
         });
     }

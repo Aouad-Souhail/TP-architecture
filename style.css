@@ -1,68 +1,119 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f7fa;
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(145deg, #f3f4f6, #e5e7eb);
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .app {
-    background-color: #fff;
-    margin-top: 60px;
+    max-width: 600px;
+    margin: 40px auto;
     padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 500px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
     text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
     color: #333;
 }
 
 #task-form {
     display: flex;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
 }
 
 #la-tache-rajouter {
     flex: 1;
-    padding: 10px;
+    padding: 12px;
+    font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    font-size: 16px;
+    transition: border-color 0.3s;
 }
 
-button {
-    padding: 10px 15px;
-    background-color: #4CAF50;
-    border: none;
+#la-tache-rajouter:focus {
+    outline: none;
+    border-color: #4f46e5;
+}
+
+#categorie-select {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
     border-radius: 8px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    background-color: #f9fafb;
+    min-width: 140px;
 }
 
-button:hover {
-    background-color: #45a049;
+button#bouton-ajouter {
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+    padding: 12px 16px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button#bouton-ajouter:hover {
+    background-color: #4338ca;
 }
 
 #liste-des-taches {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 #liste-des-taches li {
-    padding: 10px;
-    background-color: #f0f0f0;
-    margin-bottom: 8px;
-    border-radius: 6px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    color: #111827;
     font-size: 16px;
-    color: #444;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform 0.2s;
+}
+
+#liste-des-taches li:hover {
+    transform: scale(1.02);
+}
+
+.travail {
+    background-color: #fee2e2;
+    border-left: 6px solid #ef4444;
+}
+
+.maison {
+    background-color: #dbeafe;
+    border-left: 6px solid #3b82f6;
+}
+
+.divers {
+    background-color: #dcfce7;
+    border-left: 6px solid #22c55e;
+}
+
+.perso {
+    background-color: #ffccf2;
+    border-left: 6px solid #ff33cc;
 }

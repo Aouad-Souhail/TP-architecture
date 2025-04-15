@@ -1,26 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Liste de Tâches Avancée</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
 
 <div class="app">
-    <h1>Liste de Tâches</h1>
+    <h1>📝 Ma Liste de Tâches</h1>
+
     <div id="task-form">
-        <input type="text" id="la-tache-rajouter" placeholder="Ajouter une tâche">
-        <button id="bouton-ajouter">Ajouter</button>
+        <input type="text" id="la-tache-rajouter" placeholder="Ajouter une nouvelle tâche..." />
+        <select id="categorie-select">
+            <option value="travail">💼 Travail</option>
+            <option value="maison">🏡 Maison</option>
+            <option value="divers">📦 Divers</option>
+            <option value="perso">😎​ le R</option>
+        </select>
+        <button id="bouton-ajouter">+ Ajouter</button>
     </div>
+
     <ul id="liste-des-taches"></ul>
 </div>
 
-
-<script src="model.js"></script>
-<script src="view.js"></script>
-<script src="controller.js"></script>
-
+<script type="module" src="controller.js"></script>
 </body>
 </html>
