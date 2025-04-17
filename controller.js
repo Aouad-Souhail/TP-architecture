@@ -9,14 +9,47 @@ class Controller {
         view.logiqueAffichageClick((description, categorie) => {
             const nouvelleTache = new TacheAvancee(description, categorie);
             model.addTache(nouvelleTache);
-            view.afficherTaches(model.getTaches());
+            this.mettreAJourTachesAffichees();
         });
+
+        view.logiqueFiltrageCategorie(categorie => {
+            this.categorieActive = categorie;
+            this.mettreAJourTachesAffichees();
+        });
+
+        this.categorieActive = 'toutes'; // Par défaut
+    }
+
+    mettreAJourTachesAffichees() {
+        const toutesLesTaches = this.model.getTaches();
+        let tachesAffichees;
+
+        if (this.categorieActive === 'toutes') {
+            tachesAffichees = toutesLesTaches;
+        } else {
+            tachesAffichees = toutesLesTaches.filter(t => t.categorie === this.categorieActive);
+        }
+
+        this.view.afficherTaches(tachesAffichees);
     }
 
     init() {
-        this.view.afficherTaches(this.model.getTaches());
+        this.mettreAJourTachesAffichees();
     }
 }
+
+const toggleButton = document.getElementById('theme-toggle');
+const body = document.body;
+
+toggleButton.addEventListener('click', () => {
+    body.classList.toggle('dark');
+
+    if (body.classList.contains('dark')) {
+        toggleButton.textContent = '☀️ Thème clair';
+    } else {
+        toggleButton.textContent = '🌙 Thème sombre';
+    }
+});
 
 const controller = new Controller(new Model(), new View());
 controller.init();

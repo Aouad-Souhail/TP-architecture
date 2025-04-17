@@ -5,115 +5,215 @@
 }
 
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(145deg, #f3f4f6, #e5e7eb);
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    transition: background 0.4s, color 0.4s;
+    background: linear-gradient(120deg, #f1f5f9, #e2e8f0);
+    color: #1f2937;
     min-height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
 }
 
 .app {
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 30px;
+    width: 100%;
+    max-width: 720px;
     background-color: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    transition: background-color 0.4s, box-shadow 0.4s;
 }
 
 h1 {
     text-align: center;
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #333;
+    font-size: 34px;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+#theme-toggle-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 25px;
+}
+
+#theme-toggle {
+    background-color: #6366f1;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    font-size: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#theme-toggle:hover {
+    background-color: #4f46e5;
 }
 
 #task-form {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 25px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 160px auto;
+    gap: 12px;
+    margin-bottom: 30px;
 }
 
-#la-tache-rajouter {
-    flex: 1;
-    padding: 12px;
+input,
+select,
+button {
+    padding: 12px 14px;
     font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    transition: border-color 0.3s;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    transition: all 0.3s ease;
 }
 
-#la-tache-rajouter:focus {
+#la-tache-rajouter:focus,
+#categorie-select:focus {
+    border-color: #6366f1;
     outline: none;
-    border-color: #4f46e5;
+    background-color: #f9fafb;
 }
 
 #categorie-select {
-    padding: 12px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9fafb;
-    min-width: 140px;
+    background-color: #f3f4f6;
 }
 
-button#bouton-ajouter {
-    background-color: #4f46e5;
+#bouton-ajouter {
+    background-color: #10b981;
     color: white;
     border: none;
-    padding: 12px 16px;
-    font-size: 16px;
-    border-radius: 8px;
+    font-weight: 500;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-button#bouton-ajouter:hover {
-    background-color: #4338ca;
+#bouton-ajouter:hover {
+    background-color: #059669;
+    transform: scale(1.03);
+}
+
+#filter-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    color: #d1d5db;
+    margin-bottom: 25px;
+}
+
+#filtre-categorie {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    background-color: #f9fafb;
 }
 
 #liste-des-taches {
     list-style: none;
-    padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 14px;
+    padding: 0;
 }
 
+
 #liste-des-taches li {
-    padding: 14px 18px;
-    border-radius: 10px;
-    color: #111827;
+    padding: 16px 20px;
+    border-radius: 12px;
     font-size: 16px;
     font-weight: 500;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    transition: transform 0.2s;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 #liste-des-taches li:hover {
-    transform: scale(1.02);
+    transform: translateY(-2px);
 }
 
 .travail {
     background-color: #fee2e2;
-    border-left: 6px solid #ef4444;
+    border-left: 6px solid #dc2626;
 }
 
 .maison {
     background-color: #dbeafe;
-    border-left: 6px solid #3b82f6;
+    border-left: 6px solid #2563eb;
 }
 
 .divers {
     background-color: #dcfce7;
-    border-left: 6px solid #22c55e;
+    border-left: 6px solid #16a34a;
 }
 
 .perso {
-    background-color: #ffccf2;
-    border-left: 6px solid #ff33cc;
+    background-color: #fce7f3;
+    border-left: 6px solid #db2777;
+}
+
+body.dark {
+    background: linear-gradient(120deg, #0f172a, #1e293b);
+    color: #f3f4f6;
+}
+
+body.dark .app {
+    background-color: #1e293b;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+body.dark h1 {
+    color: #f9fafb;
+}
+
+body.dark input,
+body.dark select,
+body.dark button {
+    background-color: #374151;
+    color: #000000;
+    border-color: #4b5563;
+}
+
+body.dark input:focus,
+body.dark select:focus {
+    border-color: #6366f1;
+}
+
+body.dark #liste-des-taches li {
+    color: #000000;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.04);
+}
+
+body.dark .travail {
+    background-color: #7f1d1d;
+    border-left: 6px solid #ef4444;
+}
+
+body.dark .maison {
+    background-color: #1e40af;
+    border-left: 6px solid #3b82f6;
+}
+
+body.dark .divers {
+    background-color: #064e3b;
+    border-left: 6px solid #22c55e;
+}
+
+body.dark .perso {
+    background-color: #831843;
+    border-left: 6px solid #ec4899;
+}
+
+body.dark #theme-toggle {
+    background-color: #000000;
+    color: white;
+}
+
+body.dark #theme-toggle:hover {
+    background-color: #6b7280;
 }

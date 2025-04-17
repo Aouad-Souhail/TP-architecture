@@ -9,6 +9,11 @@
 <body>
 
 <div class="app">
+
+    <div id="theme-toggle-container" style="text-align: right; margin-bottom: 20px;">
+        <button id="theme-toggle">🌙 Thème sombre</button>
+    </div>
+
     <h1>📝 Ma Liste de Tâches</h1>
 
     <div id="task-form">
@@ -23,6 +28,18 @@
     </div>
 
     <ul id="liste-des-taches"></ul>
+
+    <div id="filter-container">
+        <label for="filtre-categorie">Filtrer par catégorie :</label>
+        <select id="filtre-categorie">
+            <option value="toutes">Toutes</option>
+            <option value="travail">Travail</option>
+            <option value="maison">Maison</option>
+            <option value="divers">Divers</option>
+            <option value="perso">Perso</option>
+        </select>
+    </div>
+
 </div>
 
 <script type="module" src="controller.js"></script>

@@ -46,6 +46,8 @@ class View {
         this.tacheRajouter = document.getElementById('la-tache-rajouter');
         this.boutonRajouterTache = document.getElementById('bouton-ajouter');
         this.selectCategorie = document.getElementById('categorie-select');
+        this.selectFiltreCategorie = document.getElementById('filtre-categorie');
+
     }
 
     getTacheRajouter() {
@@ -67,6 +69,14 @@ class View {
             }
         });
     }
+
+    logiqueFiltrageCategorie(callback) {
+        this.selectFiltreCategorie.addEventListener('change', () => {
+            const categorie = this.selectFiltreCategorie.value;
+            callback(categorie);
+        });
+    }
+
 
     afficherTaches(taches) {
         this.listeTacheRajouter.innerHTML = '';
